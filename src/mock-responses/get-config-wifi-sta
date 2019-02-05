@@ -1,0 +1,5 @@
+{
+  "status": 1,
+  "ssid": "ESP-sta-ssid",
+  "ip": "192.168.50.1"
+}

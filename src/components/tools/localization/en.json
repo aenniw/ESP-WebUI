@@ -1,0 +1,84 @@
+{
+  "navigation": {
+    "settings": "Settings",
+    "services": "Services",
+    "gpio-digital": "Digital GPIO",
+    "led-strip": "LED strip",
+    "monitoring": "Monitoring"
+  },
+  "auth": {
+    "password": "Password",
+    "user": "User"
+  },
+  "status": {
+    "label": "Status",
+    "system": "System",
+    "model": "Model",
+    "version": "Version",
+    "chip-id": "Chip ID",
+    "up-time": "Up-Time",
+    "memory": "Memory",
+    "sketch": "Sketch",
+    "free": "Free",
+    "cpu": "Cpu",
+    "cpu-clock": "Clock speed"
+  },
+  "settings": {
+    "management": "Managment",
+    "wifi": {
+      "mode": "Mode",
+      "channel": "Channel",
+      "address": "Ip-address",
+      "hidden": "Hidden",
+      "visible": "Visible",
+      "hostname": "Hostname",
+      "mac": "Mac address",
+      "ap": "Access point",
+      "connected": "Connected",
+      "disconnected": "Disconnected"
+    }
+  },
+  "monitoring": {
+    "logs": "System logs"
+  },
+  "gpio": {
+    "label": "Digital GPIO control",
+    "low": "LOW",
+    "high": "HIGH",
+    "input": "Input",
+    "output": "Output"
+  },
+  "led": {
+    "label": "Led-Strip",
+    "type": "Type",
+    "mode": "Mode",
+    "pinout": "Pinout",
+    "length": "Length",
+    "anim": "Animation",
+    "color": "Color",
+    "speed": "Speed",
+    "brigh": "Brightness",
+    "palette": "Color palette",
+    "modes": {
+      "color": "Color",
+      "rainbow-1": "Rainbow 1",
+      "rainbow-2": "Rainbow 2",
+      "switch-1": "Switch 1",
+      "switch-2": "Switch 2"
+    }
+  },
+  "buttons": {
+    "reboot": "Reboot",
+    "reset": "Factory reset",
+    "apply": "Apply",
+    "connect": "Connect",
+    "clear": "Clear logs",
+    "login": "Login",
+    "logout": "Logout",
+    "add": "Add",
+    "remove": "Remove",
+    "refresh": "Refresh",
+    "toggle": "Toggle"
+  },
+  "copyright": "Copyright © 2018 · All Rights reserved · Version 0.2"
+}

@@ -1,0 +1,18 @@
+.dropdown {
+  @width: 120px;
+
+  position: relative;
+  display: inline-block;
+  > *:first-child {
+    width: @width;
+  }
+  > *:last-child {
+    position: absolute;
+    width: @width;
+    z-index: 1;
+    background: #673ab7;
+    > * {
+      width: @width;
+    }
+  }
+}

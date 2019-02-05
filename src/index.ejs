@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREBERAQAAAREQEREBAAABAAAAAQEAAAEAAAABAQAAAQAAABEBAAABEQAREQEREAERABERAREQAQAAEQABABABAAAQAAEAEAEAABAAAQAQAREQEREBERABERAREQEREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+    <!--script async src="https://cdn.polyfill.io/v2/polyfill.min.js"></script-->
+    <% for (var chunk in htmlWebpackPlugin.files.css) { %>
+    <link
+      rel="preload"
+      href="<%= htmlWebpackPlugin.files.css[chunk] %>"
+      as="style"
+    />
+    <% } %> <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <link
+      rel="preload"
+      href="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"
+      as="script"
+    />
+    <% } %>
+    <meta charset="utf-8" />
+    <title>ESP-UI</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimal-ui"
+    />
+    <meta name="description" content="preact-boilerplate" />
+    <meta name="application-name" content="preact-boilerplate" />
+    <meta name="theme-color" content="#673ab8" />
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "ip": "192.168.4.1",
+  "ssid": "mock-ssid",
+  "channel": 15,
+  "hidden": false
+}
