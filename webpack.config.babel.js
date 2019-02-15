@@ -11,12 +11,13 @@ const ENV = process.env.NODE_ENV || "development";
 const CSS_MAPS = ENV !== "production";
 const devPort = process.env.PORT || 8080;
 const devHost = process.env.HOSTNAME || "localhost";
+const routes = "./site-routes";
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
   entry: {
-    index: "./index.js",
-    login: "./login.js"
+    index: routes + "/index.js",
+    login: routes + "/login.js"
   },
 
   output: {
@@ -133,11 +134,11 @@ module.exports = {
       "process.env.NODE_ENV": JSON.stringify(ENV)
     }),
     new HtmlWebpackPlugin({
-      template: "./index.ejs",
+      template: routes + "/index.ejs",
       chunks: ["index"]
     }),
     new HtmlWebpackPlugin({
-      template: "./login.ejs",
+      template: routes + "/login.ejs",
       chunks: ["login"],
       filename: "login.html"
     }),
