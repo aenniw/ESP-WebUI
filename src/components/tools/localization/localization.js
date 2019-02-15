@@ -3,12 +3,17 @@ import { h } from "preact";
 import { IntlProvider } from "preact-i18n";
 
 import locale_en from "./en.json";
-import locale_cz from "./cs.json";
+import locale_cs from "./cs.json";
+
+const locales = {
+  en: locale_en,
+  cs: locale_cs
+};
 
 function getLocale(locale = "en") {
   locale = locale.split("-")[0];
   console.log("Localization", locale);
-  if (locale === "cs") return locale_cz;
+  if (locale in locales) return locales[locale];
   return locale_en;
 }
 

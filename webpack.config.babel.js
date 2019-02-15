@@ -2,22 +2,27 @@ import webpack from "webpack";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import CompressionPlugin from "compression-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import ScriptExtHtmlWebpackPlugin from "script-ext-html-webpack-plugin";
 import autoprefixer from "autoprefixer";
-import CopyWebpackPlugin from "copy-webpack-plugin";
 import OfflinePlugin from "offline-plugin";
 import path from "path";
 const ENV = process.env.NODE_ENV || "development";
 
 const CSS_MAPS = ENV !== "production";
+const devPort = process.env.PORT || 8080;
+const devHost = process.env.HOSTNAME || "localhost";
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  entry: "./index.js",
+  entry: {
+    index: "./index.js",
+    login: "./login.js"
+  },
 
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: "/",
-    filename: "bundle.js"
+    filename: "[name].js"
   },
 
   resolve: {
@@ -129,7 +134,15 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./index.ejs",
-      minify: { collapseWhitespace: true }
+      chunks: ["index"]
+    }),
+    new HtmlWebpackPlugin({
+      template: "./login.ejs",
+      chunks: ["login"],
+      filename: "login.html"
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      inline: ["login.js"]
     })
   ].concat(
     ENV === "production"
@@ -161,7 +174,7 @@ module.exports = {
               if_return: true,
               join_vars: true,
               cascade: true,
-              drop_console: false
+              drop_console: true
             }
           }),
           new OfflinePlugin({
@@ -207,19 +220,21 @@ module.exports = {
         res.send({ result: true });
       });
     },
-    port: process.env.PORT || 8080,
-    host: "localhost",
+    port: devPort,
+    host: devHost,
     publicPath: "/",
     contentBase: "./src",
     historyApiFallback: true,
+    compress: true,
+    hot: true,
+    overlay: true,
     open: true,
     openPage: "",
     proxy: {
-      // OPTIONAL: proxy configuration:
-      // '/optional-prefix/**': { // path pattern to rewrite
-      //   target: 'http://target-host.com',
-      //   pathRewrite: path => path.replace(/^\/[^\/]+\//, '')   // strip first path segment
-      // }
+      "/login": {
+        target: "http://" + devHost + ":" + devPort + "/login.html",
+        pathRewrite: { "^/login": "" }
+      }
     }
   }
 };
