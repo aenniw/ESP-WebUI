@@ -8,6 +8,10 @@ export default () => {
   return (
     <footer class={style.footer}>
       <Text id="copyright" />
+      {
+        process.env.NODE_ENV !== "production" &&
+        <span class={style.media_label}/>
+      }
     </footer>
   );
 };
