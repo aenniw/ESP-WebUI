@@ -20,7 +20,6 @@ function getLocale(locale = "en") {
 export default function Localized({ children }) {
   return (
     <IntlProvider
-      mark={process.env.NODE_ENV !== "production"}
       definition={getLocale(navigator.language)}
     >
       {children}
