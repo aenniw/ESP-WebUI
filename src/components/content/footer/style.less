@@ -1,3 +1,5 @@
+@import "../../tools/commons.less";
+
 .footer {
   position: fixed;
   width: 100%;
@@ -10,4 +12,33 @@
   bottom: 0;
   justify-content: center;
   align-items: center;
+}
+
+.media_label {
+  text-align: center;
+  position: fixed;
+  right: 0;
+
+  &:after {
+    background: red;
+    color: white;
+    padding: 0.5em 1em;
+
+    @media @mobile {
+      background: orange;
+      content: "mobile";
+    }
+    @media @tablet {
+      background: purple;
+      content: "tablet";
+    }
+    @media @desktop {
+      background: green;
+      content: "desktop";
+    }
+    @media @desktop-xl {
+      background: blue;
+      content: "desktop-xl";
+    }
+  }
 }
