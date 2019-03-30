@@ -1,10 +1,12 @@
 {
   "navigation": {
-    "settings": "Settings",
+    "home": "Home",
+    "config": "Settings",
     "services": "Services",
     "gpio-digital": "Digital GPIO",
     "led-strip": "LED strip",
-    "monitoring": "Monitoring"
+    "monitoring": "Monitoring",
+    "logout": "Logout"
   },
   "auth": {
     "password": "Password",
@@ -74,7 +76,6 @@
     "connect": "Connect",
     "clear": "Clear logs",
     "login": "Login",
-    "logout": "Logout",
     "add": "Add",
     "remove": "Remove",
     "refresh": "Refresh",

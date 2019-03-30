@@ -1,0 +1,36 @@
+@import "../../../tools/commons.less";
+
+@menu-width: 35px + 2 * @menu-padding;
+@menu-padding: 10px;
+
+.menu {
+  @menu-height: (@header-height - 2 * @menu-padding) / 6;
+
+  display: none;
+  width: @menu-width;
+  float: right;
+  padding: @menu-padding;
+  height: @header-height;
+
+  .focus();
+
+  @media @mobile {
+    display: initial;
+    margin-left: auto;
+  }
+
+  > div {
+    width: 100%;
+    height: @menu-height - 2px;
+    margin-top: @menu-height;
+    background-color: #eee;
+    border-radius: 15%;
+
+    &:first-child {
+      margin-top: @menu-height / 2 + 2px;
+    }
+    &:last-child {
+      margin-bottom: @menu-height / 2 + 2px;
+    }
+  }
+}

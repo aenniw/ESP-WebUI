@@ -1,20 +1,41 @@
 @import "../../../tools/commons.less";
 
 .dropdown {
-  @width: 120px;
+  @width: 100%;
 
+  .focus();
   position: relative;
-  display: inline-block;
   > *:first-child {
     width: @width;
   }
   > *:last-child {
-    position: absolute;
+    background-color: @theme-color;
+    display: none;
     width: @width;
     z-index: 1;
     background: @theme-color;
     > * {
+      display: inline-block;
       width: @width;
+    }
+  }
+  @media @desktop {
+    .dropdown_hover();
+  }
+  @media @desktop-xl {
+    .dropdown_hover();
+  }
+}
+
+.dropdown_active {
+  .dropdown();
+  background-color: @theme-color-focus;
+}
+
+.dropdown_hover {
+  &:hover {
+    > *:last-child {
+      display: block;
     }
   }
 }

@@ -1,48 +1,71 @@
 @import "../../tools/commons.less";
 
-.header {
-  width: 100%;
-  height: 56px;
-  padding: 0;
-  padding-right: 20px;
-  background: @theme-color;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  z-index: 50;
+@button-padding: 15px;
 
-  h1 {
-    float: left;
-    margin: 0;
-    padding: 0 15px;
-    font-size: 24px;
-    line-height: 56px;
-    font-weight: 400;
-    > * {
-      color: #fff;
-      text-decoration: none;
-    }
+.selected {
+  background: @theme-color-active;
+}
+
+.selected_mobile {
+  .selected();
+  @media @tablet {
+    .hidden();
+  }
+  @media @desktop {
+    .hidden();
+  }
+  @media @desktop-xl {
+    .hidden();
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: @header-height;
+  background: @theme-color;
+
+  a,
+  button {
+    line-height: @header-height;
+    padding: 0 @button-padding;
+    text-decoration: none;
+    text-align: center;
+    will-change: background-color;
+    color: #eee;
+    outline: none;
   }
 
-  nav {
-    float: right;
-    font-size: 100%;
+  @media @mobile {
+    > * {
+      order: 2;
+      display: none;
+    }
+    > *:last-child {
+      display: initial;
+    }
+    .selected,
+    .selected_mobile {
+      display: initial;
+      order: 1;
+    }
+  }
+}
 
-    a,
-    button {
-      display: inline-block;
-      height: 56px;
-      line-height: 56px;
-      padding: 0 15px;
-      min-width: 50px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0);
-      text-decoration: none;
-      color: #eee;
-      will-change: background-color;
+.header_expanded {
+  .header();
 
-      &:hover,
-      &:active {
-        background: rgba(255, 255, 255, 0.3);
-      }
+  @media @mobile {
+    display: inline-flex;
+    flex-direction: column;
+    height: auto;
+
+    > * {
+      display: initial;
     }
   }
 }

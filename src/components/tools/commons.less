@@ -8,3 +8,15 @@
 @desktop-xl: ~"only screen and (min-width: 1129px)";
 
 @theme-color: #333;
+@theme-color-active: #4caf50;
+@theme-color-focus: rgba(255, 255, 255, 0.3);
+
+@header-height: 56px;
+
+.focus {
+  &:focus,
+  &:hover,
+  &:active {
+    background: @theme-color-focus;
+  }
+}
