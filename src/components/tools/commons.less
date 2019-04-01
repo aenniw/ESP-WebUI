@@ -9,14 +9,26 @@
 
 @theme-color: #333;
 @theme-color-active: #4caf50;
-@theme-color-focus: rgba(255, 255, 255, 0.3);
+@theme-color-focus-bright: rgba(255, 255, 255, 0.3);
+@theme-color-focus-dark: rgba(0, 0, 0, 0.3);
+@theme-color-background: #fafafa;
+
+@desktop-content-width: 600px;
 
 @header-height: 56px;
 
-.focus {
+.focus-bright {
   &:focus,
   &:hover,
   &:active {
-    background: @theme-color-focus;
+    background: @theme-color-focus-bright;
+  }
+}
+
+.focus-dark {
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: @theme-color-focus-dark;
   }
 }

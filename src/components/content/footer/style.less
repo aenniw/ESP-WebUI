@@ -12,6 +12,12 @@
   bottom: 0;
   justify-content: center;
   align-items: center;
+
+  @media @mobile {
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+  }
 }
 
 .media_label {
@@ -25,19 +31,19 @@
     padding: 0.5em 1em;
 
     @media @mobile {
-      background: orange;
+      background: rgba(255, 165, 0, 0.8);
       content: "mobile";
     }
     @media @tablet {
-      background: purple;
+      background: rgb(128, 0, 128, 0.8);
       content: "tablet";
     }
     @media @desktop {
-      background: green;
+      background: rgb(0, 128, 0, 0.8);
       content: "desktop";
     }
     @media @desktop-xl {
-      background: blue;
+      background: rgb(0, 0, 255, 0.8);
       content: "desktop-xl";
     }
   }

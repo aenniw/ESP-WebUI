@@ -78,7 +78,7 @@ export default class DigitalGpio extends Component {
       .sort((a, b) => a.id - b.id);
 
     return (
-      <div class={style.gpio}>
+      <div>
         <Category label="gpio.label">
           <tr class={style.category}>
             <td>

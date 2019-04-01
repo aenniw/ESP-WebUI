@@ -26,9 +26,11 @@ export default class Settings extends Component {
       <div class={style.settings}>
         <Access ref={ref => (this.access = ref)} />
         <Wifi ref={ref => (this.wifi = ref)} />
-        <Button label="buttons.reboot" onClick={this.restart} />
-        <Button label="buttons.reset" onClick={this.reset} />
-        <Button label="buttons.apply" onClick={this.applyChanges} />
+        <div>
+          <Button label="buttons.reboot" onClick={this.restart} />
+          <Button label="buttons.reset" onClick={this.reset} />
+          <Button label="buttons.apply" onClick={this.applyChanges} />
+        </div>
       </div>
     );
   }

@@ -1,12 +1,15 @@
+@import "../../../../tools/commons.less";
+
 .gpio_button {
   td {
     width: 33%;
   }
-  > td:nth-child(2) {
-    text-align: center;
-    color: white;
-  }
   button {
     width: 50%;
+
+    @media @mobile {
+      display: block;
+      width: 100%;
+    }
   }
 }
