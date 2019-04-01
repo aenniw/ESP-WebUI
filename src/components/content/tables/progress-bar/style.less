@@ -1,9 +1,12 @@
+@import "../../../tools/commons.less";
+
 .progress {
   background: gray;
   text-align: center;
   color: white;
   height: 18px;
   width: 100%;
+
   > span {
     position: relative;
     top: -18px;
@@ -12,5 +15,13 @@
     border: 1px solid #999;
     height: 100%;
     background-color: #16aa56;
+  }
+
+  @media @mobile {
+    height: 36px;
+    > span {
+      position: relative;
+      top: -25px;
+    }
   }
 }

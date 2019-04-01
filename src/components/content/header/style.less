@@ -23,6 +23,24 @@
   display: none !important;
 }
 
+.header-desktop {
+  margin-right: auto;
+  margin-left: auto;
+  width: @desktop-content-width;
+
+  &:before {
+    content: "";
+    background: @theme-color;
+    height: @header-height;
+    left: 0;
+    width: 100%;
+    position: absolute;
+  }
+  > * {
+    z-index: 1;
+  }
+}
+
 .header {
   display: flex;
   width: 100%;
@@ -38,9 +56,19 @@
     will-change: background-color;
     color: #eee;
     outline: none;
+
+    .focus-bright();
+  }
+
+  @media @desktop {
+    .header-desktop();
+  }
+  @media @desktop-xl {
+    .header-desktop();
   }
 
   @media @mobile {
+    position: fixed;
     > * {
       order: 2;
       display: none;
@@ -63,6 +91,7 @@
     display: inline-flex;
     flex-direction: column;
     height: auto;
+    z-index: 1;
 
     > * {
       display: initial;

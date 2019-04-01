@@ -7,6 +7,7 @@ import Category from "../../../../content/tables/category";
 import Field from "../../../../content/tables/field";
 import { Password } from "../../../../content/inputs";
 import { Requests } from "../../../../tools/commons";
+import Button from "../../../../content/buttons/button";
 
 export default class WifiSta extends Component {
   componentWillMount() {
@@ -50,8 +51,8 @@ export default class WifiSta extends Component {
                 </option>
               ))}
           </select>
-          <button
-            class={style.networks_refresh}
+          <Button
+            className={style.networks_refresh}
             onClick={this.refreshNetworks}
           />
         </Field>

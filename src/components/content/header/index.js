@@ -19,6 +19,21 @@ export default class Header extends Component {
     this.setState({ pressed: false });
   };
 
+  handleClick = e => {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.release();
+  };
+
+  componentWillMount() {
+    document.addEventListener("mousedown", this.handleClick, true);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClick, true);
+  }
+
   navClassName = href => {
     if (this.props.url === href) return style.selected;
     return style.focus;
@@ -31,7 +46,10 @@ export default class Header extends Component {
 
   render({ hrefs = ["/gpio/digital", "/led-strip"] }, { pressed }) {
     return (
-      <header className={pressed ? style.header_expanded : style.header}>
+      <header
+        className={pressed ? style.header_expanded : style.header}
+        ref={node => (this.node = node)}
+      >
         <Navigation
           onClick={this.release}
           className={this.navClassName}

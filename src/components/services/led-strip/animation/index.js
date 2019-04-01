@@ -73,7 +73,7 @@ export default class LedAmination extends Component {
 
   render({}, { speed, brightness, color, colors, type }) {
     return (
-      <Category label="navigation.settings">
+      <Category label="navigation.config">
         <Field label="led.anim">
           <AnimationTypePicker value={type} onChange={this.setAnimationType} />
         </Field>

@@ -3,14 +3,13 @@
 .dropdown {
   @width: 100%;
 
-  .focus();
+  .focus-bright();
   position: relative;
   > *:first-child {
     width: @width;
   }
   > *:last-child {
     background-color: @theme-color;
-    display: none;
     width: @width;
     z-index: 1;
     background: @theme-color;
@@ -29,7 +28,7 @@
 
 .dropdown_active {
   .dropdown();
-  background-color: @theme-color-focus;
+  background-color: @theme-color-focus-bright;
 }
 
 .dropdown_hover {
