@@ -1,0 +1,27 @@
+@import "../buttons/button/style.less";
+
+.input_label {
+  height: 40px;
+  line-height: 40px;
+}
+
+.input_file {
+  > input[type="file"] {
+    display: none;
+  }
+  > label {
+    .button();
+    .input_label();
+  }
+  > span {
+    height: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-style: italic;
+    .input_label();
+  }
+}
+
+.input_submit {
+  .button();
+}
