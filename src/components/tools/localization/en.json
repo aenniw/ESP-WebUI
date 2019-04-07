@@ -79,7 +79,16 @@
     "add": "Add",
     "remove": "Remove",
     "refresh": "Refresh",
-    "toggle": "Toggle"
+    "toggle": "Toggle",
+    "select": "Select"
+  },
+  "file": {
+    "none": "No file selected"
+  },
+  "ota": {
+    "spiffs": "SPIFS",
+    "firmware": "Firmware",
+    "flash": "Upload & Flash"
   },
   "copyright": "Copyright © 2018 · All Rights reserved · Version 0.2"
 }
