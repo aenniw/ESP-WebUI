@@ -1,7 +1,7 @@
 {
-  "name": "preact-boilerplate",
-  "version": "6.0.0",
-  "description": "TODO",
+  "name": "esp-webui",
+  "version": "0.3.0",
+  "description": "Preact frontend for ESP8226/ESP32",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
     "build": "mkdirp build && cross-env NODE_ENV=production webpack --progress",
@@ -12,7 +12,7 @@
     "webpack"
   ],
   "license": "MIT",
-  "author": "TODO",
+  "author": "aenniw@gmail.com",
   "devDependencies": {
     "autoprefixer": "^8.0.0",
     "babel": "^6.5.2",

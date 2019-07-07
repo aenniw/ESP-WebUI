@@ -1,0 +1,73 @@
+@import "../../../tools/commons.less";
+
+.ota_form {
+  @button-space: 5px;
+
+  > * {
+    margin: 0;
+  }
+
+  > select,
+  > input[type="submit"] {
+    margin: @button-space 0 0 @button-space;
+    text-align-last: center;
+    width: calc(50% - @button-space);
+
+    @media @mobile {
+      width: 100%;
+      margin: @button-space 0 0;
+    }
+  }
+  > select {
+    margin: @button-space @button-space 0 0;
+  }
+  > *:first-child {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@button-size: 50px;
+@button-margin: 8px;
+
+.ota_selection {
+  width: calc(100% - @button-size - @button-margin) !important;
+}
+
+.ota_buttons {
+  @size: @button-size - @button-margin - 10px;
+
+  float: right;
+  padding: 0;
+  margin: @button-margin;
+  margin-right: 0;
+  width: @button-size - @button-margin;
+  height: @button-size - @button-margin;
+  padding: (@button-size - @size) / 2 - 2px;
+  border: none;
+  font-size: @size;
+  line-height: @size;
+  text-align: center;
+  text-decoration: none;
+  color: @theme-color-background;
+  background-color: @theme-color;
+}
+
+.ota_prerelease {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-left: 5px;
+
+  > :first-child {
+    height: @button-size / 3;
+    line-height: @button-size / 3;
+    margin-top: @button-size / 12;
+  }
+
+  > input {
+    width: @button-size / 2;
+    height: @button-size / 2;
+  }
+}

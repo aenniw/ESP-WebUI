@@ -3,15 +3,14 @@ import { Component, h } from "preact";
 import style from "./style.less";
 import { Localizer, Text } from "preact-i18n";
 
-export function Input({ id, label = "", value, onChange, type = "text" }) {
+export function Input({ label = "", type = "text", className, ...props }) {
   return (
     <Localizer>
       <input
-        id={id}
+        class={className}
         type={type}
         placeholder={<Text id={label} />}
-        onChange={onChange}
-        value={value}
+        {...props}
       />
     </Localizer>
   );
@@ -51,7 +50,7 @@ export class File extends Component {
         <label for={id}>
           <Text id={label} />
         </label>
-        <input id={id} type="file" name="update" />
+        <input id={id} type="file" name="update" onChange={this.setFileName} />
         <span>{fileName}</span>
       </span>
     );

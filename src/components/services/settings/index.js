@@ -6,6 +6,7 @@ import Button from "../../content/buttons/button";
 import { AdminRequests } from "../../tools/commons";
 import Wifi from "./wifi";
 import Access from "./access";
+import Ota from "./ota";
 
 export default class Settings extends Component {
   restart = () => {
@@ -25,6 +26,7 @@ export default class Settings extends Component {
     return (
       <div class={style.settings}>
         <Access ref={ref => (this.access = ref)} />
+        <Ota ref={ref => (this.ota = ref)} />
         <Wifi ref={ref => (this.wifi = ref)} />
         <div>
           <Button label="buttons.reboot" onClick={this.restart} />
