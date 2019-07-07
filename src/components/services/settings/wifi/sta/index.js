@@ -54,6 +54,7 @@ export default class WifiSta extends Component {
           <Button
             className={style.networks_refresh}
             onClick={this.refreshNetworks}
+            name="&#x21bb;"
           />
         </Field>
         <Field label="auth.password">

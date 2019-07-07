@@ -26,6 +26,7 @@
     "cpu-clock": "Clock speed"
   },
   "settings": {
+    "ota": "Firmware updates",
     "management": "Managment",
     "wifi": {
       "mode": "Mode",
@@ -88,7 +89,9 @@
   "ota": {
     "spiffs": "SPIFS",
     "firmware": "Firmware",
-    "flash": "Upload & Flash"
+    "flash": "Upload & Flash",
+    "updates": "Check for updates",
+    "prerelease": "Include prereleases?"
   },
-  "copyright": "Copyright © 2018 · All Rights reserved · Version 0.2"
+  "copyright": "Copyright © 2019 · All Rights reserved · Version 0.3"
 }

@@ -18,33 +18,10 @@
   height: @button-size - @button-margin;
   padding: (@button-size - @size) / 2 - 2px;
   border: none;
-  font-size: 16px;
+  font-size: @size;
+  line-height: @size;
+  text-align: center;
   text-decoration: none;
+  color: @theme-color-background;
   background-color: @theme-color;
-
-  &:before,
-  &:after {
-    content: "";
-    display: block;
-  }
-  &:before {
-    border-color: transparent white white white;
-    border-radius: 50%;
-    border-style: solid;
-    border-width: @size / 16;
-    height: @size * 0.75;
-    width: @size * 0.75;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  &:after {
-    border-color: transparent transparent transparent white;
-    border-style: solid;
-    border-width: @size / 6 0 @size / 6 @size / 4;
-    height: 0;
-    position: relative;
-    top: -@size;
-    left: 50%;
-    width: 0;
-  }
 }
