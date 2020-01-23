@@ -1,7 +1,7 @@
 {
   "name": "esp-webui",
   "version": "0.3.0",
-  "description": "Preact frontend for ESP8226/ESP32",
+  "description": "Preact frontend for ESP8266/ESP32",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
     "build": "mkdirp build && cross-env NODE_ENV=production webpack --progress",
