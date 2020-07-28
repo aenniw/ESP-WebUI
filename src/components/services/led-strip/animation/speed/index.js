@@ -1,6 +1,5 @@
 // noinspection ES6UnusedImports
-import { Component, h } from "preact";
-import { AnimationTypes } from "../type";
+import { h } from "preact";
 
 export default function AnimationSpeedRange({ value, onChange }) {
   return (

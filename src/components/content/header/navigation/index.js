@@ -1,5 +1,5 @@
 // noinspection ES6UnusedImports
-import { Component, h } from "preact";
+import { h } from "preact";
 import style from "./style.less";
 
 import DropdownButton from "../../buttons/dropdown";

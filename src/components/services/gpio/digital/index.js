@@ -17,7 +17,7 @@ export default class DigitalGpio extends Component {
 
   componentWillMount() {
     Requests.get("devices-get-available-pins").then(({ pins = [] }) => {
-      this.setState({ pins: pins, pin: pins[0] });
+      this.setState({ pins, pin: pins[0] });
     });
     Requests.get("devices-get-d-io").then(resp => {
       this.setState(resp);
@@ -35,16 +35,16 @@ export default class DigitalGpio extends Component {
   addGPIO = () => {
     const { pin, type } = this.state;
     if (pin !== undefined)
-      Requests.post("devices-add", { pin: pin, type: type }).then(
+      Requests.post("devices-add", { pin, type }).then(
         ({ result }) => {
           if (result)
             this.setState(({ pins = [], devices = [] }) => {
-              devices.push({ id: pin, state: false, type: type });
+              devices.push({ id: pin, state: false, type });
               pins.splice(pins.indexOf(pin), 1);
 
               return {
-                pins: pins,
-                devices: devices,
+                pins,
+                devices,
                 pin: pins.length > 0 ? pins[0] : undefined
               };
             });
@@ -61,8 +61,8 @@ export default class DigitalGpio extends Component {
             pins.push(id);
 
             return {
-              pins: pins,
-              devices: devices,
+              pins,
+              devices,
               pin: pins.length > 0 ? pins[0] : undefined
             };
           });

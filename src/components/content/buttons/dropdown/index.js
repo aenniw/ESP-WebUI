@@ -1,6 +1,5 @@
 // noinspection ES6UnusedImports
 import { Component, h } from "preact";
-import { Text } from "preact-i18n";
 import style from "./style.less";
 
 import Button from "../button";

@@ -21,7 +21,7 @@ export default class App extends Component {
 
   handleRoute = ({ url }) => {
     this.setState(() => {
-      return { url: url };
+      return { url };
     });
   };
 

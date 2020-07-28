@@ -3,7 +3,7 @@ import { Component, h } from "preact";
 
 import Category from "../../../content/tables/category";
 import Field from "../../../content/tables/field";
-import { Input, Password, File, Submit } from "../../../content/inputs";
+import { Input, Password } from "../../../content/inputs";
 import { Requests } from "../../../tools/commons";
 
 export default class Access extends Component {
@@ -30,7 +30,7 @@ export default class Access extends Component {
     this.setState({ mode: target.value });
   };
 
-  render({}, { config = {}, mode = 0 }) {
+  render({}, { config = {} }) {
     return (
       <Category label="settings.management">
         <Field label="auth.user">

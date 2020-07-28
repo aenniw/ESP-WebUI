@@ -1,5 +1,5 @@
 // noinspection ES6UnusedImports
-import { Component, h } from "preact";
+import { h } from "preact";
 import { Text } from "preact-i18n";
 
 export const AnimationTypes = {

@@ -18,7 +18,7 @@ export default class GpioButtonIn extends Component {
 
   refresh = () => {
     const { pin } = this.props;
-    Requests.get("get-d-io-state", { pin: pin }).then(resp => {
+    Requests.get("get-d-io-state", { pin }).then(resp => {
       this.setState(resp);
     });
   };

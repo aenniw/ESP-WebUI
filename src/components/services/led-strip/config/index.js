@@ -3,7 +3,7 @@ import { Component, h } from "preact";
 
 import Category from "../../../content/tables/category";
 import Field from "../../../content/tables/field";
-import { Requests, LightRequests } from "../../../tools/commons";
+import { LightRequests } from "../../../tools/commons";
 
 export default class LedConfig extends Component {
   constructor(props) {
