@@ -34,11 +34,11 @@ function Firmwares({ onChange, mode, releases = [], release, className }) {
     <select
       onChange={onChange}
       value={release}
-      disabled={releases.length == 0}
+      disabled={releases.length === 0}
       class={className}
     >
       {releases
-        .filter(r => (r.ffs ? 100 : 0) == mode)
+        .filter(r => (r.ffs ? 100 : 0) === mode)
         .map(r => {
           return <Firmware release={r} />;
         })}

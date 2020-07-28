@@ -24,7 +24,7 @@ export default class LedAmination extends Component {
     };
     LightRequests.getAnimationColors()
       .then(resp => resp.colors.map(c => Conv.d2h(c)))
-      .then(colors => this.setState({ colors: colors }));
+      .then(colors => this.setState({ colors }));
   }
 
   setAnimationType = ({ target, value = Number(target.value) }) => {
@@ -65,7 +65,7 @@ export default class LedAmination extends Component {
     console.log(colors, value, index);
     LightRequests.setAnimationColors(colors.map(color => Conv.h2d(color))).then(
       resp => {
-        if (resp.result) this.setState({ colors: colors });
+        if (resp.result) this.setState({ colors });
       }
     );
   };

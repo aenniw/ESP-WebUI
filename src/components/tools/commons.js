@@ -88,7 +88,7 @@ class LightRequests {
 
   static setAnimationMode(mode) {
     return Requests.post("led-strip/set-mode", {
-      mode: mode
+      mode
     });
   }
   static setColor(color) {
@@ -134,15 +134,15 @@ class Time {
       return minutes + " Min";
     } else if (hours < 24) {
       return hours + " Hrs";
-    } else {
-      return days + " Days";
     }
+    return days + " Days";
+    
   }
 }
 
 class Conv {
   static d2h(d, prefix = "#") {
-    var hex = Number(d)
+    let hex = Number(d)
       .toString(16)
       .toUpperCase();
     while (hex.length < 6) {

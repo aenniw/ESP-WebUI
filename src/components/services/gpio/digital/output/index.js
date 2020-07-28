@@ -19,7 +19,7 @@ export default class GpioButtonOut extends Component {
   toggle = () => {
     const { pin } = this.props;
     const { state } = this.state;
-    Requests.post("set-d-io-state", { pin: pin, state: !state }).then(
+    Requests.post("set-d-io-state", { pin, state: !state }).then(
       ({ result }) => {
         if (result)
           this.setState(({ state }) => {

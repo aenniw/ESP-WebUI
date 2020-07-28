@@ -19,7 +19,7 @@ export default class Monitoring extends Component {
       this.setState(({ messages = [] }) => {
         console.log(message);
         messages.push(message);
-        return { messages: messages };
+        return { messages };
       });
     };
   };

@@ -1,0 +1,24 @@
+name: Node.js release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm i
+      - run: npm run build
+      - name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "./build/*"
+          token: ${{ secrets.GITHUB_TOKEN }}

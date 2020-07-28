@@ -13,7 +13,7 @@ export default class LedStrip extends Component {
     this.componentWillReceiveProps(props);
   }
 
-  componentWillReceiveProps(props) {
+  componentWillReceiveProps() {
     LightRequests.getConfig().then(resp => this.setState(resp));
   }
 
