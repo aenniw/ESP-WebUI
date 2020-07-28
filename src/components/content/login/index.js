@@ -22,7 +22,7 @@ export default class Login extends Component {
     Requests.get("login", {
       credentials: "include",
       headers: {
-        Authorization: "Basic " + btoa(user + ":" + passwd)
+        Authorization: `Basic ${  btoa(`${user  }:${  passwd}`)}`
       }
     }).then(() => location.reload());
   };

@@ -34,7 +34,7 @@ function Navigation({
 }) {
   return (
     <Link href={href} onClick={onClick} className={className(href)}>
-      <Text id={"navigation." + label} />
+      <Text id={`navigation.${  label}`} />
     </Link>
   );
 }

@@ -23,7 +23,7 @@ export default function AnimationTypePicker({ value, onChange }) {
     <select value={value} onChange={onChange}>
       {Object.keys(AnimationLabels).map((k, i) => (
         <option value={i}>
-          <Text id={"led.modes." + AnimationLabels[k]} />
+          <Text id={`led.modes.${  AnimationLabels[k]}`} />
         </option>
       ))}
     </select>

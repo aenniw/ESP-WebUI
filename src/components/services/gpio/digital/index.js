@@ -92,7 +92,7 @@ export default class DigitalGpio extends Component {
                   .sort()
                   .map((p, i) => (
                     <option key={i} value={p}>
-                      {"Pin - " + p}
+                      {`Pin - ${  p}`}
                     </option>
                   ))}
               </select>

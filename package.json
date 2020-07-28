@@ -44,8 +44,8 @@
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
     "css-loader": "^0.28.0",
-    "eslint": "^4.1.0",
-    "eslint-plugin-react": "^7.20.4",
+    "eslint": "^7.5.0",
+    "eslint-config-preact": "^1.1.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^3.0.0",
@@ -81,5 +81,8 @@
   "browserslist": [
     "last 2 version"
   ],
+  "eslintConfig": {
+    "extends": "preact"
+  },
   "main": "webpack.config.babel.js"
 }

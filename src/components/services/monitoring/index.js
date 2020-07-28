@@ -13,9 +13,9 @@ export default class Monitoring extends Component {
 
   connect = () => {
     this.disconnect();
-    this.ws = new WebSocket("ws://" + location.host + ":8181");
+    this.ws = new WebSocket(`ws://${  location.host  }:8181`);
     this.ws.onmessage = ({ data }) => {
-      const message = "[" + new Date().toLocaleTimeString() + "]> " + data;
+      const message = `[${  new Date().toLocaleTimeString()  }]> ${  data}`;
       this.setState(({ messages = [] }) => {
         console.log(message);
         messages.push(message);
@@ -44,7 +44,7 @@ export default class Monitoring extends Component {
         <Category label="monitoring.logs">
           <textarea
             disabled
-            value={messages.reduce((a, b) => a + "\n" + b, "")}
+            value={messages.reduce((a, b) => `${a  }\n${  b}`, "")}
           />
           <Button label="buttons.connect" onClick={this.connect} />
           <Button label="buttons.clear" onClick={this.clear} />

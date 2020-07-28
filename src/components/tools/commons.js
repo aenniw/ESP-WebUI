@@ -1,12 +1,12 @@
 function prefixMocks(path) {
-  if (process.env.NODE_ENV !== "production") return "mock-responses/" + path;
+  if (process.env.NODE_ENV !== "production") return `mock-responses/${  path}`;
   return path;
 }
 
 class Requests {
   static get(path, options = {}, json = true) {
     return fetch(
-      "/" + prefixMocks(path),
+      `/${  prefixMocks(path)}`,
       Object.assign(
         {
           method: "GET",
@@ -34,7 +34,7 @@ class Requests {
 
   static post(path, data = {}, options = {}, json = true) {
     return fetch(
-      "/" + prefixMocks(path),
+      `/${  prefixMocks(path)}`,
       Object.assign(
         {
           method: "POST",
@@ -129,13 +129,13 @@ class Time {
     const days = (millisec / (1000 * 60 * 60 * 24)).toFixed(1);
 
     if (seconds < 60) {
-      return seconds + " Sec";
+      return `${seconds  } Sec`;
     } else if (minutes < 60) {
-      return minutes + " Min";
+      return `${minutes  } Min`;
     } else if (hours < 24) {
-      return hours + " Hrs";
+      return `${hours  } Hrs`;
     }
-    return days + " Days";
+    return `${days  } Days`;
     
   }
 }
@@ -146,7 +146,7 @@ class Conv {
       .toString(16)
       .toUpperCase();
     while (hex.length < 6) {
-      hex = "0" + hex;
+      hex = `0${  hex}`;
     }
     return prefix + hex;
   }
