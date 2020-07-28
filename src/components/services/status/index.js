@@ -16,7 +16,7 @@ function UnitProgressBar({
   return (
     <ProgressBar
       score={score}
-      description={score + "% " + current + unit + " / " + total + unit}
+      description={`${score  }% ${  current  }${unit  } / ${  total  }${unit}`}
     />
   );
 }

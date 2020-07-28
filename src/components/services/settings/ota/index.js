@@ -13,7 +13,7 @@ function parseReleases(json, prerelease = true, fileType = "bin") {
     .filter(r => (r.prerelease = prerelease))
     .map(r =>
       r.assets
-        .filter(a => a.name.endsWith("." + fileType))
+        .filter(a => a.name.endsWith(`.${  fileType}`))
         .map(a => {
           return {
             name: a.name,
@@ -100,7 +100,7 @@ export default class Ota extends Component {
           <form
             class={style.ota_form}
             method="POST"
-            action={"/ota/update?mode=" + mode}
+            action={`/ota/update?mode=${  mode}`}
             enctype="multipart/form-data"
           >
             <File id="ota-binary" label="buttons.select" />
