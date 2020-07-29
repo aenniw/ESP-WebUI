@@ -1,4 +1,3 @@
-import webpack from "webpack";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import CompressionPlugin from "compression-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
@@ -14,6 +13,7 @@ const devHost = process.env.HOSTNAME || "localhost";
 const routes = "./site-routes";
 
 module.exports = {
+  mode: ENV,
   context: path.resolve(__dirname, "src"),
   entry: {
     index: routes + "/index.js",
@@ -65,8 +65,7 @@ module.exports = {
               options: {
                 modules: true,
                 sourceMap: CSS_MAPS,
-                importLoaders: 1,
-                minimize: true
+                importLoaders: 1
               }
             },
             {
@@ -93,7 +92,7 @@ module.exports = {
           use: [
             {
               loader: "css-loader",
-              options: { sourceMap: CSS_MAPS, importLoaders: 1, minimize: true }
+              options: { sourceMap: CSS_MAPS, importLoaders: 1 }
             },
             {
               loader: `postcss-loader`,
@@ -112,10 +111,6 @@ module.exports = {
         })
       },
       {
-        test: /\.json$/,
-        use: "json-loader"
-      },
-      {
         test: /\.(xml|html|txt|md)$/,
         use: "raw-loader"
       },
@@ -126,12 +121,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin({
       disable: true
-    }),
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(ENV)
     }),
     new HtmlWebpackPlugin({
       template: routes + "/index.ejs",
@@ -148,36 +139,6 @@ module.exports = {
   ].concat(
     ENV === "production"
       ? [
-          new webpack.optimize.UglifyJsPlugin({
-            output: {
-              comments: false
-            },
-            sourceMap: false,
-            compress: {
-              unsafe_comps: true,
-              properties: true,
-              keep_fargs: false,
-              pure_getters: true,
-              collapse_vars: true,
-              unsafe: true,
-              warnings: false,
-              screw_ie8: true,
-              sequences: true,
-              dead_code: true,
-              drop_debugger: true,
-              comparisons: true,
-              conditionals: true,
-              evaluate: true,
-              booleans: true,
-              loops: true,
-              unused: true,
-              hoist_funs: true,
-              if_return: true,
-              join_vars: true,
-              cascade: true,
-              drop_console: true
-            }
-          }),
           new OfflinePlugin({
             relativePaths: false,
             AppCache: false,
@@ -217,7 +178,7 @@ module.exports = {
 
   devServer: {
     setup(app) {
-      app.post("*", (req, res) => {
+      app.post("*", (_req, res) => {
         res.send({ result: true });
       });
     },
