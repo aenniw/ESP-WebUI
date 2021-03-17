@@ -3,11 +3,9 @@ import { h } from "preact";
 import { IntlProvider } from "preact-i18n";
 
 import locale_en from "./en.json";
-import locale_cs from "./cs.json";
 
 const locales = {
-  en: locale_en,
-  cs: locale_cs
+  en: locale_en
 };
 
 function getLocale(locale = "en") {

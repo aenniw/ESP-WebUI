@@ -1,0 +1,36 @@
+@import "../../../tools/commons.less";
+
+.link {
+  @margin-horizontal: .5em;
+  @margin-vertical  : .4em;
+
+  display        : inline-flex;
+  border-radius  : .25em;
+  line-height    : calc(@header-height - @margin-horizontal * 2);
+  margin         : @margin-horizontal .25em;
+  text-decoration: none;
+  text-align     : center;
+  will-change    : background-color;
+  color          : @theme-color-text;
+  outline        : none;
+
+  .focus();
+
+  svg {
+    margin: @margin-vertical;
+    width : 1em;
+  }
+
+  p {
+    display      : inline-block;
+    padding-right: @margin-vertical;
+    margin       : 0;
+  }
+}
+
+.link_selected {
+  .link();
+
+  color     : @theme-color-active  !important;
+  background: @theme-color-focus  !important;
+}

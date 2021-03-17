@@ -1,0 +1,41 @@
+@import "../../../tools/commons.less";
+
+.media_label {
+  @width: 10em;
+
+  text-align: center;
+  position  : fixed;
+  top       : 0;
+  width     : @width;
+  right     : calc(50% - @width / 2);
+
+  &:after {
+    @padding-vertical: 0.2em;
+
+    position  : relative;
+    top       : @padding-vertical;
+    padding   : @padding-vertical 1em;
+    background: red;
+    color     : white;
+
+    @media @mobile {
+      background: rgba(255, 165, 0, 0.8);
+      content   : "mobile";
+    }
+
+    @media @tablet {
+      background: rgb(128, 0, 128, 0.8);
+      content   : "tablet";
+    }
+
+    @media @desktop {
+      background: rgb(0, 128, 0, 0.8);
+      content   : "desktop";
+    }
+
+    @media @desktop-xl {
+      background: rgb(0, 0, 255, 0.8);
+      content   : "desktop-xl";
+    }
+  }
+}

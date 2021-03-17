@@ -2,33 +2,28 @@
   ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
   ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
   ~"only screen and (min-device-pixel-ratio: 1.5)";
-@mobile: ~"only screen and (max-width: 529px)";
-@tablet: ~"only screen and (min-width: 530px) and (max-width: 949px)";
-@desktop: ~"only screen and (min-width: 950px) and (max-width: 1128px)";
-@desktop-xl: ~"only screen and (min-width: 1129px)";
+@mobile                                    :~"only screen and (max-width: 529px)";
+@tablet                                    :~"only screen and (min-width: 530px) and (max-width: 949px)";
+@desktop                                   :~"only screen and (min-width: 950px) and (max-width: 1128px)";
+@desktop-xl                                :~"only screen and (min-width: 1129px)";
 
-@theme-color: #333;
-@theme-color-active: #4caf50;
-@theme-color-focus-bright: rgba(255, 255, 255, 0.3);
-@theme-color-focus-dark: rgba(0, 0, 0, 0.3);
+@theme-color           : white;
+@theme-color-text      : rgb(74, 74, 74);
+@theme-color-active    :rgb(50, 115, 220);
+@theme-color-focus     : rgb(250, 250, 250);
 @theme-color-background: #fafafa;
 
 @desktop-content-width: 600px;
 
-@header-height: 56px;
+@header-height: 60px;
+@header-margin: 30px;
 
-.focus-bright {
+
+.focus {
+
   &:focus,
   &:hover,
   &:active {
-    background: @theme-color-focus-bright;
-  }
-}
-
-.focus-dark {
-  &:focus,
-  &:hover,
-  &:active {
-    background-color: @theme-color-focus-dark;
+    background: @theme-color-focus;
   }
 }

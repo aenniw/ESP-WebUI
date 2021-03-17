@@ -58,6 +58,7 @@
     "offline-plugin": "^5.0.0",
     "postcss-loader": "^3.0.0",
     "preact-jsx-chai": "^2.2.1",
+    "preact-svg-loader": "^0.2.1",
     "raw-loader": "^4.0.1",
     "regenerator-runtime": "^0.13.7",
     "replace-bundle-webpack-plugin": "^1.0.0",

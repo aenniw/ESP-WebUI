@@ -1,91 +1,69 @@
 // noinspection ES6UnusedImports
-import { Component, h } from "preact";
+import { Fragment, Component, h } from "preact";
+import { Logo, Link, Links } from "./links";
+import MediaLabel from "./media-labels";
 import style from "./style.less";
 
-import { Navigation, NavigationMenu, NavigationDropDown } from "./navigation";
+import Select from "../../resources/svg/bars-solid.svg";
 
-export default class Header extends Component {
-  state = { pressed: false };
+function HeaderBar({ tag: Tag = 'header', className, children }) {
+  return (
+    <Tag className={className}>
+      <Logo />
 
-  toggle = () => {
-    this.setState(({ pressed }) => {
-      return {
-        pressed: !pressed
-      };
+      <div className={style.links}>
+        {children}
+      </div>
+    </Tag>
+  );
+}
+
+function HeaderDesktop(props) {
+  return (
+    <HeaderBar {...props} className={style.header}>
+      <Links />
+    </HeaderBar>
+  );
+}
+
+class HeaderMobile extends Component {
+  state = {
+    expanded: false
+  }
+
+  toogle = () => {
+    this.setState(({ expanded }) => {
+      return { expanded: !expanded }
     });
-  };
-
-  release = () => {
-    this.setState({ pressed: false });
-  };
-
-  handleClick = e => {
-    if (this.node.contains(e.target)) {
-      return;
-    }
-    this.release();
-  };
-
-  componentWillMount() {
-    document.addEventListener("mousedown", this.handleClick, true);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClick, true);
-  }
-
-  navClassName = href => {
-    if (this.props.url === href) return style.selected;
-    return style.focus;
-  };
-
-  navInnerClassName = href => {
-    if (this.props.url === href) return style.selected_mobile;
-    return style.hidden;
-  };
-
-  render({ hrefs = ["/gpio/digital", "/led-strip"] }, { pressed }) {
+  render({ }, { expanded }) {
     return (
-      <header
-        className={pressed ? style.header_expanded : style.header}
-        ref={node => (this.node = node)}
-      >
-        <Navigation
-          onClick={this.release}
-          className={this.navClassName}
-          href="/"
-          label="home"
-        />
-        <Navigation
-          onClick={this.release}
-          className={this.navClassName}
-          href="/config"
-        />
-        <NavigationDropDown
-          onClick={this.release}
-          className={this.navClassName}
-          label="navigation.services"
-          hrefs={hrefs}
-        />
-        {hrefs.map(href => (
-          <Navigation
-            onClick={this.release}
-            className={this.navInnerClassName}
-            href={href}
-          />
-        ))}
-        <Navigation
-          onClick={this.release}
-          className={this.navClassName}
-          href="/monitoring"
-        />
-        <Navigation
-          onClick={this.release}
-          className={this.navClassName}
-          href="/logout"
-        />
-        {!pressed && <NavigationMenu onClick={this.toggle} />}
-      </header>
+      <header className={style.header_mobile}>
+        <HeaderBar tag='div'>
+          <Link tag='button' onClick={this.toogle}>
+            <Select />
+          </Link>
+        </HeaderBar>
+
+        {
+          expanded &&
+          <div className={style.links_mobile}>
+            <Links textVisible={true} onClick={this.toogle} />
+          </div>
+        }
+      </header >
     );
   }
+}
+
+export default function Header(props) {
+  return (
+    <Fragment>
+      <MediaLabel />
+
+      <HeaderDesktop {...props} />
+      <HeaderMobile {...props} />
+    </Fragment>
+  );
 }

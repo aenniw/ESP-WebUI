@@ -25,37 +25,14 @@ body {
   background-color: @theme-color-background;
 }
 
-.document-desktop {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
 .document {
+  display: inline-block;
   height: 100%;
-  > *:nth-child(2) {
-    padding: 0px 20px;
-    padding-bottom: 20px;
-    height: calc(100% - 56px - 50px);
-    overflow: auto;
-    width: 100%;
-
-    @media @mobile {
-      position: relative;
-      top: @header-height;
-    }
-
-    @media @desktop {
-      .content-desktop();
-    }
-    @media @desktop-xl {
-      .content-desktop();
-    }
-  }
+  width: 100%;
 
   @media @desktop {
-    .document-desktop();
   }
   @media @desktop-xl {
-    .document-desktop();
   }
 }
 
@@ -72,4 +49,8 @@ select {
 select {
   padding-right: 0;
   padding-left: 0;
+}
+
+button {
+  all: unset
 }
